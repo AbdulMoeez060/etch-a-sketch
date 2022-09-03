@@ -1,6 +1,7 @@
 
 var container = document.querySelector('.container');
-var arr = []
+var mouseActive = false;
+
 for (let i = 0; i < 16; i++) {
     for (let j = 0; j < 16; j++) {
         var div = document.createElement('div')
@@ -11,6 +12,28 @@ for (let i = 0; i < 16; i++) {
         container.appendChild(div);
 
         
+    }   
+}
+var boxes = document.querySelectorAll('.box');
+
+boxes.forEach(box => {
+
+    box.addEventListener('click',toggleMouse);
+    box.addEventListener('mouseleave',changeColor);
+
+});
+
+function toggleMouse(e){
+    if(mouseActive){
+        mouseActive = false;
     }
-    
+    else{
+        mouseActive = true;
+    }
+}
+
+function changeColor(e){
+    if (mouseActive) {
+        e.target.style.backgroundColor = 'black';
+    }
 }
