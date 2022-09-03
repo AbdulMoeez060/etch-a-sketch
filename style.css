@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
+    background-color: rgba(195, 194, 194, 0.625);
+}
+.box:hover{
+    background-color: rgba(195, 194, 194, 1);;
+}
