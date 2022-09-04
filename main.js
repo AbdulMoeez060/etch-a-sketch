@@ -1,6 +1,10 @@
 
 var container = document.querySelector('.container');
 var mouseActive = false;
+var eraser = document.querySelector('.eraser');
+var blackButton = document.querySelector('.black');
+
+var color = 'black';
 
 for (let i = 0; i < 16; i++) {
     for (let j = 0; j < 16; j++) {
@@ -15,6 +19,24 @@ for (let i = 0; i < 16; i++) {
     }   
 }
 var boxes = document.querySelectorAll('.box');
+
+eraser.addEventListener('click',changeToWhite);
+
+function changeToWhite(e){
+    mouseActive = false
+    if (color == 'black') {
+        blackButton.classList.remove('active');
+        
+        e.target.classList.add('active');
+        color = 'rgba(195, 194, 194,0.05)'
+    }
+    else{
+        e.target.classList.remove('active');
+        color = 'black'
+        blackButton.classList.add('active');
+
+    }
+}
 
 boxes.forEach(box => {
 
@@ -34,6 +56,6 @@ function toggleMouse(e){
 
 function changeColor(e){
     if (mouseActive) {
-        e.target.style.backgroundColor = 'black';
+        e.target.style.backgroundColor = color;
     }
 }
