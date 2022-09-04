@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,300;1,500&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+
+}
+h1{
+    text-align: center;
+    margin-bottom: 40px;
+}
+h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
 .container{
     display: flex;
     flex-wrap: wrap;
@@ -12,7 +29,8 @@ button{
     width: 180px;
     height: 50px;
     border: none;
-    background-color:rgba(195, 194, 194, 0.5) ;
+    background-color:rgba(195, 194, 194, 0.633) ;
+    border-radius: 3px;
 }
 button:hover{
     background-color: #2f9bae;
@@ -34,6 +52,9 @@ button:hover{
     align-items: center;
     justify-content: flex-start;
     height: 650px;
+    width: 185px;
     gap: 10px;
+    background-color: rgba(174, 190, 193, 0.541);
+    border-radius: 5px
 
 }
