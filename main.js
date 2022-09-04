@@ -6,26 +6,53 @@ var blackButton = document.querySelector('.black');
 var boxNum = 16;
 
 blackButton.addEventListener('click',toggleColor)
+eraser.addEventListener('click',toggleColor);
+
 
 var color = 'black';
+var boxes;
 
-for (let i = 0; i < 16; i++) {
-    for (let j = 0; j < 16; j++) {
-        var div = document.createElement('div');
-        var size = 650/boxNum;
+function makeBoxes(num){
+    container.innerHTML = ''
 
-        div.className = 'box'
-        div.style.width = `${size}px`
-        div.style.height = `${size}px`
+    for (let i = 0; i < num; i++) {
+        for (let j = 0; j < num; j++) {
+            var div = document.createElement('div');
+            var size = 650/num;
+    
+            div.className = 'box'
+            div.style.width = `${size}px`
+            div.style.height = `${size}px`
+    
+            container.appendChild(div);
+            boxes = document.querySelectorAll('.box');
+            addListenerToBoxes()
 
-        container.appendChild(div);
-
-        
-    }   
+    
+            
+        }   
+    }
 }
-var boxes = document.querySelectorAll('.box');
+makeBoxes(16)
 
-eraser.addEventListener('click',toggleColor);
+function changeSize(value){
+    boxNum = value;
+    output = document.querySelector('output');
+    output.value = `${value} x ${value}`
+    makeBoxes(boxNum)
+}
+
+function addListenerToBoxes(){
+    boxes.forEach(box => {
+
+        box.addEventListener('click',toggleMouse);
+        box.addEventListener('mouseleave',changeColor);
+    
+    });
+}
+
+
+
 
 function toggleColor(e){
     mouseActive = false
@@ -43,12 +70,7 @@ function toggleColor(e){
     }
 }
 
-boxes.forEach(box => {
 
-    box.addEventListener('click',toggleMouse);
-    box.addEventListener('mouseleave',changeColor);
-
-});
 
 function toggleMouse(e){
     if(mouseActive){
