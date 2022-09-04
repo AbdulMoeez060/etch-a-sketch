@@ -18,6 +18,7 @@ var boxes;
 
 function makeBoxes(num){
     container.innerHTML = ''
+    mouseActive = false;
 
     for (let i = 0; i < num; i++) {
         for (let j = 0; j < num; j++) {
@@ -29,13 +30,14 @@ function makeBoxes(num){
             div.style.height = `${size}px`
     
             container.appendChild(div);
-            boxes = document.querySelectorAll('.box');
-            addListenerToBoxes()
-
-    
+            
+            
             
         }   
     }
+    boxes = document.querySelectorAll('.box');
+    addListenerToBoxes()
+    
 }
 makeBoxes(16)
 
