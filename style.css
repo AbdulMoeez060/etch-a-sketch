@@ -11,7 +11,8 @@
 button{
     width: 180px;
     height: 50px;
-    border: 1px #2f9bae solid;
+    border: none;
+    background-color:rgba(195, 194, 194, 0.5) ;
 }
 button:hover{
     background-color: #2f9bae;
