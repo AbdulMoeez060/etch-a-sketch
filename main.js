@@ -3,10 +3,14 @@ var container = document.querySelector('.container');
 var mouseActive = false;
 var eraser = document.querySelector('.eraser');
 var blackButton = document.querySelector('.black');
+var rainbow = document.querySelector('.rainbow');
+
 var boxNum = 16;
+var rainbowActive = false;
 
 blackButton.addEventListener('click',toggleColor)
 eraser.addEventListener('click',toggleColor);
+rainbow.addEventListener('click',rainbowColor);
 
 
 var color = 'black';
@@ -56,8 +60,11 @@ function addListenerToBoxes(){
 
 function toggleColor(e){
     mouseActive = false
-    if (color == 'black' && e.target.classList.contains('eraser')) {
+    rainbowActive = false;
+    if (e.target.classList.contains('eraser')) {
         blackButton.classList.remove('active');
+        rainbow.classList.remove('active');
+
         
         eraser.classList.add('active');
         color = 'rgba(195, 194, 194,0.05)'
@@ -66,6 +73,8 @@ function toggleColor(e){
         eraser.classList.remove('active');
         color = 'black'
         blackButton.classList.add('active');
+        rainbow.classList.remove('active');
+
 
     }
 }
@@ -82,7 +91,25 @@ function toggleMouse(e){
 }
 
 function changeColor(e){
-    if (mouseActive) {
+    if (mouseActive && rainbowActive===false) {
         e.target.style.backgroundColor = color;
     }
+    else if(mouseActive && rainbowActive){
+        color = Math.floor(Math.random()*16777215).toString(16);
+        e.target.style.backgroundColor = `#${color}`;
+
+
+    }
+}
+
+function rainbowColor(){
+    mouseActive = false;
+
+    rainbowActive = true;
+    blackButton.classList.remove('active');
+    eraser.classList.remove('active');
+
+        
+    rainbow.classList.add('active');
+
 }

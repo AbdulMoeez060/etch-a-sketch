@@ -23,7 +23,7 @@ h2{
     background-color: rgba(195, 194, 194, 0.5);
 }
 .box:hover{
-    background-color: rgba(195, 194, 194, 1);
+    background-color: rgb(199, 199, 199);
 }
 button{
     width: 180px;
